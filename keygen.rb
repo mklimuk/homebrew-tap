@@ -7,11 +7,11 @@ class Keygen < Formula
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/mklimuk/csdip/releases/download/v0.1.5/keygen_darwin_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+    url "https://github.com/mklimuk/csdip/releases/download/v0.1.5/keygen_darwin_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
     sha256 "82463b0e353b671980acf0dfe76cc76b8a47f0d3de423c6a655ff3ccc6329218"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/mklimuk/csdip/releases/download/v0.1.5/keygen_linux_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+      url "https://github.com/mklimuk/csdip/releases/download/v0.1.5/keygen_linux_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
       sha256 "28b3fa9af0d719a6ce53f092c4e10cb8178d798a8298dcd50b7a166a8d6dd95c"
     end
   end

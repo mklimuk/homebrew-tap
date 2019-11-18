@@ -8,11 +8,11 @@ class Csdip < Formula
 
   if OS.mac?
     url "https://github.com/mklimuk/csdip/releases/download/v1.0.0/csdip_darwin_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "9d65f26ce6cc11b3566bd733acdb6e999412a05c4ebd4685135359783bb2e510"
+    sha256 "fdca0485d950a59c12d8fd135bb22e5e69bf92d1cf24341de67c0523fbd5b475"
   elsif OS.linux?
     if Hardware::CPU.intel?
       url "https://github.com/mklimuk/csdip/releases/download/v1.0.0/csdip_linux_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "be0d1a92ed27a583615802dd55cbb3cb0727078245df8136798dd602fe38fa70"
+      sha256 "4768b92c41d0cd3202bf5eb20b895f490738b2a8398cc26f1dfc352f8a56f708"
     end
   end
 

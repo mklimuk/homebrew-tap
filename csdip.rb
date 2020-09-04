@@ -3,16 +3,16 @@ require_relative "./lib/custom_download_strategy.rb"
 class Csdip < Formula
   desc "CSDIP keygen"
   homepage ""
-  version "1.19.1"
+  version "1.19.2"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/mklimuk/csdip/releases/download/v1.19.1/csdip_darwin_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-    sha256 "a4d05bb31a76dd06ab014394ee2530f92ef64ced8e5a7ad930e2bb8ebce2eb70"
+    url "https://github.com/mklimuk/csdip/releases/download/v1.19.2/csdip_darwin_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "901be112d90cf748d03bbae20c9fa477ab9ca3293634a817479310e6e20f3783"
   elsif OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/mklimuk/csdip/releases/download/v1.19.1/csdip_linux_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "93b83591a0da73e8717eb03d6c6ac37819c12cb330fcf4d93f45d3ff08b0e322"
+      url "https://github.com/mklimuk/csdip/releases/download/v1.19.2/csdip_linux_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "0f995291ccda248560a7eaa3233f946d9de7d06be938cfcd68ca4cef5b1993fe"
     end
   end
 

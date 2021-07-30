@@ -83,7 +83,6 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
     #"https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
     #blah = curl_output "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", "-I"
     uri = URI("https://api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}")
-    File.open("/tmp/uri", 'w') { |file| file.write(uri) }
     req = Net::HTTP::Get.new(uri)
     req['Accept'] = 'application/octet-stream'
     req['Authorization'] = "token #{@github_token}"
@@ -100,7 +99,7 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
   def _fetch(url:, resolved_url:)
     # HTTP request header `Accept: application/octet-stream` is required.
     # Without this, the GitHub API will respond with metadata, not binary.
-    curl_download download_url, "--header", "Accept: application/octet-stream", to: temporary_path
+    curl_download download_url, "--header", "Accept: application/octet-stream", to: temporary_path, timeout: 20
   end
 
   def asset_id

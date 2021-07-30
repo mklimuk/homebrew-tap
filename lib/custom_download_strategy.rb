@@ -83,7 +83,7 @@ class CustomGitHubPrivateRepositoryReleaseDownloadStrategy < CustomGitHubPrivate
     #"https://#{@github_token}@api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}"
     #blah = curl_output "--header", "Accept: application/octet-stream", "--header", "Authorization: token #{@github_token}", "-I"
     uri = URI("https://api.github.com/repos/#{@owner}/#{@repo}/releases/assets/#{asset_id}")
-    $stdout.write uri
+    File.open("/tmp/uri", 'w') { |file| file.write(uri) }
     req = Net::HTTP::Get.new(uri)
     req['Accept'] = 'application/octet-stream'
     req['Authorization'] = "token #{@github_token}"

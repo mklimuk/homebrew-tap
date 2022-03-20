@@ -6,23 +6,31 @@ require_relative "./lib/custom_download_strategy.rb"
 class Csdip < Formula
   desc "CSDIP keygen"
   homepage ""
-  version "1.25.2"
+  version "1.26.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/mklimuk/csdip/releases/download/v1.25.2/csdip_darwin_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "6e00f03b1d32f0d332fc20fa2c9bbf3ce3ab84207fee95185e1f7dba71aac110"
+    url "https://github.com/mklimuk/csdip/releases/download/v1.26.0/csdip_darwin_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+    sha256 "6a53e1bb07fdc397082e88f3dd69a0509304c89f5ec4ab09e1880130253f0532"
 
-      def install
-        bin.install "csdip"
+    def install
+      bin.install "csdip"
+    end
+
+    if Hardware::CPU.arm?
+      def caveats
+        <<~EOS
+          The darwin_arm64 architecture is not supported for the Csdip
+          formula at this time. The darwin_amd64 binary may work in compatibility
+          mode, but it might not be fully supported.
+        EOS
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/mklimuk/csdip/releases/download/v1.25.2/csdip_linux_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
-      sha256 "6c9f0820ad42c0e85ca30b685b87b0e55774bc6961d079a05caf9abbfa73890e"
+      url "https://github.com/mklimuk/csdip/releases/download/v1.26.0/csdip_linux_amd64.tar.gz", :using => CustomGitHubPrivateRepositoryReleaseDownloadStrategy
+      sha256 "f6bddcf676e7e9d6c012658331f79e4edf52fcace0c27be86e8a189668b170a6"
 
       def install
         bin.install "csdip"
